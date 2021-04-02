@@ -5,13 +5,15 @@ import Header from "./components/Header";
 const useStyles = makeStyles({
   page: {
     display: 'grid',
-    gridTemplateColumns: '210px minmax(275px, auto)',
+    gridTemplateColumns: '210px minmax(350px, auto)',
     gridTemplateRows: '50px auto',
     gap: '1rem',
     minHeight: '100vh',
     padding: '1rem',
+    fontFamily: 'Roboto, Helvetica, Arial, sans-serif',
   },
   main: {
+    padding: '0.5rem',
     background: 'grey',
   }
 })

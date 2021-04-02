@@ -3,6 +3,7 @@ import {makeStyles, Paper} from "@material-ui/core"
 
 const useStyles = makeStyles({
   header: {
+    padding: '0.5rem',
     background: 'Cornsilk',
     gridColumn: '1/3',
   }

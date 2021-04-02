@@ -9,6 +9,9 @@ const useStyles = makeStyles({
       marginBottom: 0,
     },
     cursor: 'pointer',
+    '&:hover' : {
+      background: '#EFEFEF',
+    }
   },
   details: {
     display: 'grid',

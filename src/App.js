@@ -1,6 +1,8 @@
 import {makeStyles, Container, Paper} from "@material-ui/core"
+import ExercisePreview from "./components/ExercisePreview";
 import Filter from "./components/Filter";
 import Header from "./components/Header";
+import {exercises} from './exercises'
 
 const useStyles = makeStyles({
   page: {
@@ -27,12 +29,11 @@ const App = () => {
       <Header />   
       <Filter />
       <Paper className={classes.main}>
-        <ul>
-          <li>Item</li>
-          <li>Item</li>
-          <li>Item</li>
-          <li>Item</li>
-        </ul>
+        {
+          exercises.map(exercise => (
+            <ExercisePreview exercise={exercise} key={exercise.id}/>
+          ))
+        }
       </Paper>
     </Container>
   );

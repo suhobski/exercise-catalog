@@ -21,8 +21,6 @@ const useStyles = makeStyles({
   },
   textWrap: {
     display: 'grid',
-    // gap: '0.25rem',
-
   },
   image: {
     marginTop: '0.25rem',

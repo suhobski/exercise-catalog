@@ -253,7 +253,7 @@ export const exercises = [
     id: uuidv4(),
     category: 'Физическая подготовка',
     level: 1,
-    imgPath: '/control/treasureIsland.jpg',
+    imgPath: '/physicaltraining/treasureIsland.jpg',
     intensity: ['middle'],
     name: 'Игра «Остров сокровищ»',
     tasks: [
@@ -270,9 +270,9 @@ export const exercises = [
     id: uuidv4(),
     category: 'Физическая подготовка',
     level: 1,
-    imgPath: '/control/"cowboysAndIndians.jpg',
+    imgPath: '/physicaltraining/cowboysAndIndians.jpg',
     intensity: ['middle'],
-    name: 'Игра «Остров сокровищ»',
+    name: 'Игра «Ковбои и индейцы»',
     tasks: [
       'Комплексное развитие физических качеств (быстрота, выносливость, ловкость, координация).',
       'Развития внимания.',

@@ -13,6 +13,10 @@ const useStyles = makeStyles({
       background: '#EFEFEF',
     }
   },
+  header: {
+    display: 'flex',
+    justifyContent: 'space-between',
+  },
   details: {
     display: 'grid',
     gap: '0.5rem',
@@ -46,11 +50,14 @@ const useStyles = makeStyles({
 const ExercisePreview = ({exercise}) => {
 
   const classes = useStyles();
-  const {imgPath, name, description} = exercise;
+  const {level, imgPath, name, description} = exercise;
 
   return (
     <Card className={classes.root}>
-      <h3>{name}</h3>
+      <div className={classes.header}>
+        <h3>{name}</h3>
+        <h3>Уровень {level}</h3>
+      </div>
       <div className={classes.details}>
         <img
           className={classes.image} 

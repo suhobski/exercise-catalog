@@ -1,12 +1,26 @@
 import React from 'react'
 import {makeStyles, Paper} from "@material-ui/core"
+import {Link} from 'react-router-dom'
 
 const useStyles = makeStyles({
   header: {
+    display: 'grid',
+    alignContent: 'center',
     padding: '0.5rem',
     background: 'Cornsilk',
     gridColumn: '1/3',
-  }
+  },
+  link: {
+    textDecoration: 'none',
+  },
+  list: {
+    margin: 0,
+  },
+  'list-item': {
+    display: 'inline-block',
+    marginRight: '1rem',
+    listStyleType: 'none',
+  },
 })
 
 const Header = () => {
@@ -15,7 +29,19 @@ const Header = () => {
 
   return (
     <Paper className={classes.header}>
-      <span>Header</span>
+        <nav>
+          <ul className={classes.list}>
+            <li className={classes['list-item']}>
+              <Link className={classes.link} to="/">Home</Link>
+            </li>
+            <li className={classes['list-item']}>
+              <Link className={classes.link} to="/about">About</Link>
+            </li>
+            <li className={classes['list-item']}>
+              <Link className={classes.link} to="/favorites">Favorites</Link>
+            </li>
+          </ul>
+        </nav>
     </Paper>
   );
 }

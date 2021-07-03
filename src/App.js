@@ -3,6 +3,7 @@ import ExercisePreview from "./components/ExercisePreview";
 import Filter from "./components/Filter";
 import Header from "./components/Header";
 import {exercises} from './exercises'
+import {Switch, Route} from "react-router-dom";
 
 const useStyles = makeStyles({
   page: {
@@ -26,15 +27,23 @@ const App = () => {
 
   return (
     <Container maxWidth="lg" className={classes.page}>
-      <Header />   
-      <Filter />
-      <Paper className={classes.main}>
-        {
-          exercises.map(exercise => (
-            <ExercisePreview exercise={exercise} key={exercise.id}/>
-          ))
-        }
-      </Paper>
+      <Header />
+      <Switch>
+        <Route path="/" exact>
+          <Filter />
+          <Paper className={classes.main}>
+            {
+              exercises.map(exercise => (
+                // exercise.category === 'Физическая подготовка' &&
+                <ExercisePreview exercise={exercise} key={exercise.id}/>
+              ))
+            }
+          </Paper>
+        </Route>
+        <Route path="/about" children={<Paper><h1>ABOUT</h1></Paper>}/>
+        <Route path="/favorites" children={<Paper><h1>FAVORITES</h1></Paper>}/>
+        <Route path="*" children={<Paper><h1>404</h1></Paper>} />
+      </Switch>
     </Container>
   );
 }

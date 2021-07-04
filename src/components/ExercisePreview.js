@@ -6,6 +6,8 @@ const useStyles = makeStyles({
     padding: '0.5rem',
     marginBottom: '0.5rem',
     background: '#F0FFFF',
+    border: '1px solid #87CEEB',
+    boxShadow: 'none',
     '&:last-child': {
       marginBottom: 0,
     },
@@ -42,8 +44,13 @@ const useStyles = makeStyles({
   button: {
     fontSize: 12,
     marginLeft: '0.5rem',
+    background: '#FFFFFF',
+    textTransform: 'none',
     '&:first-child': {
       marginLeft: 0,
+    },
+    '&:hover': {
+      background: '#87CEEB',
     }
   }
 })

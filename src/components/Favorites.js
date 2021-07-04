@@ -22,6 +22,7 @@ const Header = () => {
 
   return (
     <Paper className={classes.root}>
+      <h2>Избранные упражнения</h2>
       {
         exercises.map(exercise => (
           <ExercisePreview exercise={exercise} key={exercise.id}/>

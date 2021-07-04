@@ -12,6 +12,7 @@ const useStyles = makeStyles({
   },
   link: {
     textDecoration: 'none',
+    color: 'black',
   },
   list: {
     margin: 0,
@@ -32,13 +33,13 @@ const Header = () => {
         <nav>
           <ul className={classes.list}>
             <li className={classes['list-item']}>
-              <Link className={classes.link} to="/">Home</Link>
+              <Link className={classes.link} to="/">Каталог</Link>
             </li>
             <li className={classes['list-item']}>
-              <Link className={classes.link} to="/about">About</Link>
+              <Link className={classes.link} to="/favorites">Избранное</Link>
             </li>
             <li className={classes['list-item']}>
-              <Link className={classes.link} to="/favorites">Favorites</Link>
+              <Link className={classes.link} to="/about">О проекте</Link>
             </li>
           </ul>
         </nav>

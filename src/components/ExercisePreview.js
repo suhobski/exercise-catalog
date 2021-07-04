@@ -1,5 +1,6 @@
 import React from 'react'
 import {Button, Card, makeStyles} from "@material-ui/core"
+import { useHistory } from 'react-router'
 
 const useStyles = makeStyles({
   root: {
@@ -58,10 +59,11 @@ const useStyles = makeStyles({
 const ExercisePreview = ({exercise}) => {
 
   const classes = useStyles();
-  const {level, imgPath, name, description} = exercise;
+  let history = useHistory();
+  const {level, imgPath, name, description, id} = exercise;
 
   return (
-    <Card className={classes.root}>
+    <Card className={classes.root} onClick={() => history.push(`/exercise/${id}`)}>
       <div className={classes.header}>
         <h3>{name}</h3>
         <h3>Уровень {level}</h3>

@@ -16,7 +16,7 @@ const useStyles = makeStyles({
   }
 })
 
-const Header = () => {
+const Favorites = () => {
 
   const classes = useStyles();
 
@@ -32,4 +32,4 @@ const Header = () => {
   );
 }
 
-export default Header;
+export default Favorites;

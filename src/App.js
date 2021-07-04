@@ -6,6 +6,7 @@ import {exercises} from './exercises'
 import {Switch, Route} from "react-router-dom";
 import About from './components/About'
 import Favorites from './components/Favorites'
+import ExerciseFullView from './components/ExerciseFullView'
 
 const useStyles = makeStyles({
   page: {
@@ -46,6 +47,7 @@ const App = () => {
         </Route>
         <Route path="/about" children={<About />}/>
         <Route path="/favorites" children={<Favorites />}/>
+        <Route path="/exercise/:id" children={<ExerciseFullView />}/>
         <Route path="*" children={<Paper><h1>404</h1></Paper>} />
       </Switch>
     </Container>

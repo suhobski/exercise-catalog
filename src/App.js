@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import {exercises} from './exercises'
 import {Switch, Route} from "react-router-dom";
 import About from './components/About'
+import Favorites from './components/Favorites'
 
 const useStyles = makeStyles({
   page: {
@@ -34,6 +35,7 @@ const App = () => {
         <Route path="/" exact>
           <Filter />
           <Paper className={classes.main}>
+            <h2>Каталог упражнений</h2>
             {
               exercises.map(exercise => (
                 // exercise.category === 'Физическая подготовка' &&
@@ -43,7 +45,7 @@ const App = () => {
           </Paper>
         </Route>
         <Route path="/about" children={<About />}/>
-        <Route path="/favorites" children={<Paper><h1>FAVORITES</h1></Paper>}/>
+        <Route path="/favorites" children={<Favorites />}/>
         <Route path="*" children={<Paper><h1>404</h1></Paper>} />
       </Switch>
     </Container>

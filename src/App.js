@@ -13,11 +13,12 @@ const useStyles = makeStyles({
     gap: '1rem',
     minHeight: '100vh',
     padding: '1rem',
+    background: '#87CEEB',
     fontFamily: 'Roboto, Helvetica, Arial, sans-serif',
   },
   main: {
     padding: '0.5rem',
-    background: 'grey',
+    background: '#F0FFFF',
   }
 })
 

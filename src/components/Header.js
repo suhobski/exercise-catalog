@@ -7,7 +7,7 @@ const useStyles = makeStyles({
     display: 'grid',
     alignContent: 'center',
     padding: '0.5rem',
-    background: 'Cornsilk',
+    background: '#F0FFFF',
     gridColumn: '1/3',
   },
   link: {

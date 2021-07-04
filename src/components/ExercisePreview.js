@@ -5,12 +5,13 @@ const useStyles = makeStyles({
   root: {
     padding: '0.5rem',
     marginBottom: '0.5rem',
+    background: '#F0FFFF',
     '&:last-child': {
       marginBottom: 0,
     },
     cursor: 'pointer',
     '&:hover' : {
-      background: '#EFEFEF',
+      background: '#E1F0F0',
     }
   },
   header: {

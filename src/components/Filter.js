@@ -8,7 +8,7 @@ const useStyles = makeStyles({
   filter: {
     position: 'sticky',
     padding: '0.5rem',
-    background: 'gainsboro',
+    background: '#F0FFFF',
   },
   option: {
     display: 'block',

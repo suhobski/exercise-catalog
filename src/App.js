@@ -4,6 +4,7 @@ import Filter from "./components/Filter";
 import Header from "./components/Header";
 import {exercises} from './exercises'
 import {Switch, Route} from "react-router-dom";
+import About from './components/About'
 
 const useStyles = makeStyles({
   page: {
@@ -41,7 +42,7 @@ const App = () => {
             }
           </Paper>
         </Route>
-        <Route path="/about" children={<Paper><h1>ABOUT</h1></Paper>}/>
+        <Route path="/about" children={<About />}/>
         <Route path="/favorites" children={<Paper><h1>FAVORITES</h1></Paper>}/>
         <Route path="*" children={<Paper><h1>404</h1></Paper>} />
       </Switch>

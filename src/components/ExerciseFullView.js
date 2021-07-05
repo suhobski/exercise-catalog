@@ -17,8 +17,9 @@ const ExerciseFullView = () => {
   const classes = useStyles();
   let { id } = useParams();
   let exercise = exercises.find(item => item.id === id);
-  const {category, level, imgPath, intensity, name, tasks, description} = exercise
-
+  // const {category, level, imgPath, intensity, name, tasks, description} = exercise
+  const { level, imgPath, name, description} = exercise
+  
   return (
     <Paper className={classes.root}>
       <h3>{name}</h3>

@@ -1,8 +1,5 @@
 import {makeStyles, Container, Paper} from "@material-ui/core"
-// import ExercisePreview from "./components/ExercisePreview";
-// import Filter from "./components/Filter";
 import Header from "./components/Header";
-// import {exercises} from './exercises'
 import {Switch, Route} from "react-router-dom";
 import About from './components/About'
 import Favorites from './components/Favorites'

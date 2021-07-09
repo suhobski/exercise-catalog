@@ -1,7 +1,7 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import {makeStyles, Paper} from "@material-ui/core"
 import ExercisePreview from './ExercisePreview';
-import {exercises} from '../exercises'
+import ExercisesService from '../ExercisesService'
 
 
 const useStyles = makeStyles({
@@ -19,6 +19,16 @@ const useStyles = makeStyles({
 const Favorites = () => {
 
   const classes = useStyles();
+  const [exercises, setExercises] = useState([]);
+
+  useEffect(() => {
+    const getData = async () => {
+      const data = await ExercisesService.fetchExercises();
+      const [exercises] = Object.values(data); 
+      setExercises(exercises);
+    }
+    getData();
+  }, []);
 
   return (
     <Paper className={classes.root}>

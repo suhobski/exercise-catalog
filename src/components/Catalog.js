@@ -1,8 +1,9 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect} from 'react'
 import {makeStyles, Paper} from "@material-ui/core"
 import Filter from './Filter';
-import ExercisesService from '../ExercisesService'
 import ExercisePreview from './ExercisePreview';
+import {connect} from 'react-redux'
+import {fetchCatalog} from '../store/actions/catalog'
 
 const useStyles = makeStyles({
   catalog: {
@@ -11,32 +12,38 @@ const useStyles = makeStyles({
   }
 })
 
-const Catalog = () => {
+const Catalog = ({fetchComponentCatalog, catalog}) => {
   const classes = useStyles();
-  const [exercises, setExercises] = useState([]);
 
-  useEffect(() => {
-    const getData = async () => {
-      const data = await ExercisesService.fetchExercises();
-      const [exercises] = Object.values(data); 
-      setExercises(exercises);
-    }
-    getData();
-  }, []);
-  
+  useEffect(() => fetchComponentCatalog(), [fetchComponentCatalog]);
+
   return(
     <>
       <Filter />
       <Paper className={classes.catalog}>
         <h2>Каталог упражнений</h2>
         {
-          exercises.map(exercise => (
-            <ExercisePreview exercise={exercise} key={exercise.id}/>
-          ))
+          catalog.length !== 0
+          ? catalog.map(exercise => (
+              <ExercisePreview exercise={exercise} key={exercise.id}/>
+            ))
+          : null
         }
       </Paper>
     </>
   )
 }
 
-export default Catalog;
+function mapStateToProps(state) {
+  return {
+    catalog: state.catalog.exercises
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    fetchComponentCatalog: () => dispatch(fetchCatalog())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Catalog);

@@ -1,7 +1,7 @@
 import React from 'react'
 import {Paper, makeStyles} from "@material-ui/core"
-import {useParams} from "react-router-dom";
-import {exercises} from '../exercises'
+// import {useParams} from "react-router-dom";
+// import ExercisesService from '../ExercisesService'
 
 
 const useStyles = makeStyles({
@@ -15,29 +15,41 @@ const useStyles = makeStyles({
 const ExerciseFullView = () => {
 
   const classes = useStyles();
-  let { id } = useParams();
-  let exercise = exercises.find(item => item.id === id);
-  // const {category, level, imgPath, intensity, name, tasks, description} = exercise
-  const { level, imgPath, name, description} = exercise
+  // let { id } = useParams();
+  // const [exercise, setExercises] = useState(null);
+  // let exercise = null;
+    
+  // async function getData() {
+  //   const data = await ExercisesService.fetchExercises();
+  //   const [exercises] = Object.values(data); 
+  //   exercise = exercises.find(item => item.id === id);
+  //   // setExercises(exercise);
+  // }
+  // getData();
+  // console.log(exercise);
+
+  // const { level, imgPath, name, description} = exercise
   
   return (
     <Paper className={classes.root}>
-      <h3>{name}</h3>
-      <div className={classes.header}>
-        <h3>Уровень {level}</h3>
-      </div>
-      <div className={classes.details}>
-        <img
-          className={classes.image} 
-          src={'./img' + imgPath} 
-          alt={name}
-        />
-        <div className={classes.textWrap}>
-          <h4>Описание упражнения:</h4>
-          <p className={classes.description}>{description}</p>
-          <div className={classes.actions}>
-          </div>
+      <div>
+        {/* <h3>{name}</h3>
+        <div className={classes.header}>
+          <h3>Уровень {level}</h3>
         </div>
+        <div className={classes.details}>
+          <img
+            className={classes.image} 
+            src={'./img' + imgPath} 
+            alt={name}
+          />
+          <div className={classes.textWrap}>
+            <h4>Описание упражнения:</h4>
+            <p className={classes.description}>{description}</p>
+            <div className={classes.actions}>
+            </div>
+          </div>
+        </div> */}
       </div>
     </Paper>
   );

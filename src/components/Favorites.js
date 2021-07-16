@@ -1,10 +1,8 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect} from 'react'
 import {makeStyles, Paper} from "@material-ui/core"
 import ExercisePreview from './ExercisePreview';
 import {fetchCatalog} from '../store/actions/catalog'
 import {connect} from 'react-redux'
-
-
 
 const useStyles = makeStyles({
   root: {
@@ -22,7 +20,7 @@ const Favorites = ({fetchComponentCatalog, catalog}) => {
 
   const classes = useStyles();
 
-  useEffect(() => fetchComponentCatalog(), [fetchComponentCatalog]);
+  useEffect(() => fetchComponentCatalog(), []);
 
   return (
     <Paper className={classes.root}>

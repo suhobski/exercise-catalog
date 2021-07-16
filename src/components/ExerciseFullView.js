@@ -1,7 +1,8 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import {Paper, makeStyles} from "@material-ui/core"
-// import {useParams} from "react-router-dom";
-// import ExercisesService from '../ExercisesService'
+import {useParams} from "react-router-dom";
+import {fetchCatalog} from '../store/actions/catalog'
+import {connect} from 'react-redux'
 
 
 const useStyles = makeStyles({
@@ -12,47 +13,79 @@ const useStyles = makeStyles({
   },
 })
 
-const ExerciseFullView = () => {
+const ExerciseFullView = ({fetchComponentCatalog, catalog}) => {
 
   const classes = useStyles();
-  // let { id } = useParams();
-  // const [exercise, setExercises] = useState(null);
-  // let exercise = null;
-    
-  // async function getData() {
-  //   const data = await ExercisesService.fetchExercises();
-  //   const [exercises] = Object.values(data); 
-  //   exercise = exercises.find(item => item.id === id);
-  //   // setExercises(exercise);
-  // }
-  // getData();
-  // console.log(exercise);
+  let { id } = useParams();
+  let 
+  category, 
+  description,
+  imgPath, 
+  intensity,
+  level, 
+  name,
+  recomendation,
+  tasks,
+  exercise;
+  
+  if (catalog.length !== 0) {
+    let exercise = catalog.find(exercise => exercise.id === id)
+    console.log(exercise);
+    ({
+      category, 
+      description,
+      imgPath, 
+      intensity,
+      level, 
+      name,
+      recomendation,
+      tasks
+    } = exercise)
+  }
+  
 
-  // const { level, imgPath, name, description} = exercise
+  useEffect(() => fetchComponentCatalog(), []);
   
   return (
     <Paper className={classes.root}>
-      <div>
-        {/* <h3>{name}</h3>
-        <div className={classes.header}>
-          <h3>Уровень {level}</h3>
-        </div>
-        <div className={classes.details}>
-          <img
-            className={classes.image} 
-            src={'./img' + imgPath} 
-            alt={name}
-          />
-          <div className={classes.textWrap}>
-            <h4>Описание упражнения:</h4>
-            <p className={classes.description}>{description}</p>
-            <div className={classes.actions}>
+      {
+        catalog.length !== 0
+        ? <div>
+            <h3>{name}</h3>
+            <div className={classes.header}>
+              <h3>Уровень {level}</h3>
             </div>
+            <div className={classes.details}>
+              <img
+                className={classes.image} 
+                // src={'../img' + imgPath} 
+                src={'../img/' + imgPath} 
+                alt={name}
+              />
+              <div className={classes.textWrap}>
+                <h4>Описание упражнения:</h4>
+                <p className={classes.description}>{description}</p>
+                <div className={classes.actions}>
+                </div>
+              </div>
+            </div>          
           </div>
-        </div> */}
-      </div>
+        : null
+      }
     </Paper>
   );
 }
 
-export default ExerciseFullView;
+function mapStateToProps(state) {
+  return {
+    catalog: state.catalog.exercises
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    fetchComponentCatalog: () => dispatch(fetchCatalog())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ExerciseFullView);

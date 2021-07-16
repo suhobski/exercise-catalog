@@ -1,7 +1,9 @@
 import React, {useEffect, useState} from 'react'
 import {makeStyles, Paper} from "@material-ui/core"
 import ExercisePreview from './ExercisePreview';
-import ExercisesService from '../ExercisesService'
+import {fetchCatalog} from '../store/actions/catalog'
+import {connect} from 'react-redux'
+
 
 
 const useStyles = makeStyles({
@@ -16,30 +18,36 @@ const useStyles = makeStyles({
   }
 })
 
-const Favorites = () => {
+const Favorites = ({fetchComponentCatalog, catalog}) => {
 
   const classes = useStyles();
-  const [exercises, setExercises] = useState([]);
 
-  useEffect(() => {
-    const getData = async () => {
-      const data = await ExercisesService.fetchExercises();
-      const [exercises] = Object.values(data); 
-      setExercises(exercises);
-    }
-    getData();
-  }, []);
+  useEffect(() => fetchComponentCatalog(), [fetchComponentCatalog]);
 
   return (
     <Paper className={classes.root}>
       <h2>Избранные упражнения</h2>
       {
-        exercises.map(exercise => (
+        catalog.length !== 0
+        ? catalog.map(exercise => (
           <ExercisePreview exercise={exercise} key={exercise.id}/>
         ))
+        : null
       }
     </Paper>
   );
 }
 
-export default Favorites;
+function mapStateToProps(state) {
+  return {
+    catalog: state.catalog.exercises
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    fetchComponentCatalog: () => dispatch(fetchCatalog())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Favorites);

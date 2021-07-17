@@ -25,6 +25,9 @@ const useStyles = makeStyles({
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
+    '& h3': {
+      margin: 0,
+    }
   },
   image: {
     maxWidth: '400px',

@@ -15,11 +15,14 @@ const useStyles = makeStyles({
     cursor: 'pointer',
     '&:hover' : {
       background: '#E1F0F0',
-    }
+    },
   },
   header: {
     display: 'flex',
     justifyContent: 'space-between',
+    '& h3': {
+      margin: 0,
+    }
   },
   details: {
     display: 'grid',
@@ -29,14 +32,18 @@ const useStyles = makeStyles({
   },
   textWrap: {
     display: 'grid',
+    '& h4': {
+      margin: '0 0 .5rem 0',
+    }
   },
   image: {
     marginTop: '0.25rem',
+    maxWidth: '100%',
   },
   description: {
     marginTop: '-0.25rem',
-    maxHeight: 72,
-    fontSize: 12,
+    maxHeight: 84,
+    fontSize: 14,
     overflow: 'hidden',
   },
   actions: {

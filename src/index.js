@@ -22,7 +22,7 @@ const app = (
   <Provider store={store}>
     <Router>
       <App />
-    </Router>,
+    </Router>
   </Provider>
 )
 

@@ -16,6 +16,7 @@ const useStyles = makeStyles({
   },
   list: {
     margin: 0,
+    paddingLeft: 0,
   },
   'list-item': {
     display: 'inline-block',

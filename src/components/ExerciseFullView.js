@@ -10,7 +10,38 @@ const useStyles = makeStyles({
     gridColumn: '1/3',
     padding: '0.5rem',
     background: '#F0FFFF',
+    textAlign: 'justify',
+    '& p': {
+      margin: '0 0 .5rem 0',
+    },
+    '& h4': {
+      margin: '.5rem 0 0 0',
+    },
+    '& ul': {
+      margin: '0 .5rem 0 0',
+    }
   },
+  header: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  image: {
+    maxWidth: '400px',
+    float: 'left',
+    margin: '0 1rem 0 0',
+  },
+  'root h4': {
+    margin: '.5rem 0',
+    color: 'red',
+  }, 
+  taskItem: {
+    listStyleType: 'none',
+    textTransform: 'lowercase'
+  },
+  intensity: {
+    fontWeight: 'normal',
+  }
 })
 
 const ExerciseFullView = ({fetchComponentCatalog, catalog}) => {
@@ -18,21 +49,18 @@ const ExerciseFullView = ({fetchComponentCatalog, catalog}) => {
   const classes = useStyles();
   let { id } = useParams();
   let 
-  category, 
   description,
   imgPath, 
   intensity,
   level, 
   name,
   recomendation,
-  tasks,
-  exercise;
+  tasks;
   
   if (catalog.length !== 0) {
     let exercise = catalog.find(exercise => exercise.id === id)
     console.log(exercise);
-    ({
-      category, 
+    ({ 
       description,
       imgPath, 
       intensity,
@@ -42,8 +70,25 @@ const ExerciseFullView = ({fetchComponentCatalog, catalog}) => {
       tasks
     } = exercise)
   }
-  
 
+  let intensityDisplay
+  if (catalog.length !== 0) {
+    intensityDisplay = intensity.map(item => {
+      switch (item) {
+        case 'small':
+          return 'низкая';
+        case 'middle': 
+          return 'средняя';
+        case 'hight':
+          return 'высокая'
+        default:
+          return ''
+      }
+    })
+  }
+
+  console.log(intensityDisplay);
+  
   useEffect(() => fetchComponentCatalog(), []);
   
   return (
@@ -51,22 +96,32 @@ const ExerciseFullView = ({fetchComponentCatalog, catalog}) => {
       {
         catalog.length !== 0
         ? <div>
-            <h3>{name}</h3>
-            <div className={classes.header}>
-              <h3>Уровень {level}</h3>
-            </div>
+            <header className={classes.header}>
+              <h3>{name}</h3>
+              <h4 className={classes.text}>Уровень {level}</h4>
+            </header>
             <div className={classes.details}>
               <img
                 className={classes.image} 
-                // src={'../img' + imgPath} 
                 src={'../img/' + imgPath} 
                 alt={name}
               />
               <div className={classes.textWrap}>
-                <h4>Описание упражнения:</h4>
+                <h4 className={classes.text}>Задачи:</h4>
+                <ul>
+                  {
+                    tasks.map(task => <li key={task} className={classes.taskItem}>{task}</li>)
+                  }
+                </ul>
+                <h4 className={classes.text}>Описание упражнения:</h4>
                 <p className={classes.description}>{description}</p>
-                <div className={classes.actions}>
-                </div>
+                <h4 className={classes.text}>Рекомендации:</h4>
+                <p className={classes.text}>{recomendation}</p>
+                <h4 className={classes.text}>
+                  Интенсивность: <span className={classes.intensity}>{
+                    intensityDisplay.join(', ')
+                  }.</span>
+                </h4>
               </div>
             </div>          
           </div>

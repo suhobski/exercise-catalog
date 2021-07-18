@@ -20,6 +20,7 @@ const useStyles = makeStyles({
   header: {
     display: 'flex',
     justifyContent: 'space-between',
+    marginBottom: '.5rem',
     '& h3': {
       margin: 0,
     }
@@ -32,6 +33,7 @@ const useStyles = makeStyles({
   },
   textWrap: {
     display: 'grid',
+    textAlign: 'justify',
     '& h4': {
       margin: '0 0 .5rem 0',
     }

@@ -15,7 +15,7 @@ const useStyles = makeStyles({
 const Catalog = ({fetchComponentCatalog, catalog}) => {
   const classes = useStyles();
 
-  useEffect(() => fetchComponentCatalog(), [fetchComponentCatalog]);
+  useEffect(() => fetchComponentCatalog(), []);
 
   return(
     <>

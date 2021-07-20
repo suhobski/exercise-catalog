@@ -1,4 +1,3 @@
-// import ExercisesService from '../../ExercisesService'
 import axios from 'axios'
 import { FETCH_CATALOG_ERROR, FETCH_CATALOG_START, FETCH_CATALOG_SUCCESS } from './actionTypes';
 

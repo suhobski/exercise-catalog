@@ -4,7 +4,7 @@ import { useHistory } from 'react-router'
 
 const useStyles = makeStyles({
   root: {
-    padding: '0.5rem',
+    padding: '0.5rem 0.5rem 0 0.5rem',
     marginBottom: '0.5rem',
     background: '#F0FFFF',
     border: '1px solid #87CEEB',
@@ -21,9 +21,15 @@ const useStyles = makeStyles({
     display: 'flex',
     justifyContent: 'space-between',
     marginBottom: '.5rem',
-    '& h3': {
-      margin: 0,
-    }
+  },
+  exerciseName: {
+    textOverflow: 'ellipsis',
+    overflow: 'hidden',
+    whiteSpace: 'nowrap',
+  },
+  exerciseLevel: {
+    marginLeft: '2rem',
+    whiteSpace: 'nowrap',
   },
   details: {
     display: 'grid',
@@ -52,15 +58,14 @@ const useStyles = makeStyles({
     justifySelf: 'end',
   },
   button: {
-    fontSize: 12,
-    marginLeft: '0.5rem',
-    background: '#FFFFFF',
+    margin: '7px 2px',
+    background: '#87CEEB',
     textTransform: 'none',
     '&:first-child': {
       marginLeft: 0,
     },
     '&:hover': {
-      background: '#87CEEB',
+      background: '#7fc1db',
     }
   }
 })
@@ -74,8 +79,8 @@ const ExercisePreview = ({exercise}) => {
   return (
     <Card className={classes.root} onClick={() => history.push(`/exercise/${id}`)}>
       <div className={classes.header}>
-        <h3>{name}</h3>
-        <h3>Уровень {level}</h3>
+        <h3 className={classes.exerciseName}>{name}</h3>
+        <h3 className={classes.exerciseLevel}>Уровень {level}</h3>
       </div>
       <div className={classes.details}>
         <img
@@ -87,7 +92,12 @@ const ExercisePreview = ({exercise}) => {
           <h4>Описание упражнения:</h4>
           <p className={classes.description}>{description}</p>
           <div className={classes.actions}>
-            <Button className={classes.button} variant="contained">В избранное</Button>
+            <Button 
+              className={classes.button} 
+              variant="contained"
+              color="secondary"
+              >В избранное
+            </Button>
           </div>
         </div>
       </div>

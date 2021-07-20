@@ -61,8 +61,7 @@ const ExerciseFullView = ({fetchComponentCatalog, catalog}) => {
   tasks;
   
   if (catalog.length !== 0) {
-    let exercise = catalog.find(exercise => exercise.id === id)
-    console.log(exercise);
+    let exercise = catalog.find(exercise => exercise.id === id);
     ({ 
       description,
       imgPath, 
@@ -89,8 +88,6 @@ const ExerciseFullView = ({fetchComponentCatalog, catalog}) => {
       }
     })
   }
-
-  console.log(intensityDisplay);
   
   useEffect(() => fetchComponentCatalog(), []);
   

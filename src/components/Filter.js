@@ -223,7 +223,6 @@ const Filter = ({onChangeCategory, onChangeLevel, onChangeIntensity}) => {
 }
 
 function mapStateToProps(state) {
-  console.log(state);
   return {
     category: state.filter.category,
     level: state.filter.level,

@@ -23,7 +23,6 @@ const initialState = {
 }
 
 export default function filterReducer(state = initialState, action) {
-  console.log('action', action);
   switch(action.type) {
     case ON_CHANGE_CATEGORY:
       return {

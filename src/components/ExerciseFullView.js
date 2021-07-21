@@ -73,21 +73,21 @@ const ExerciseFullView = ({fetchComponentCatalog, catalog}) => {
     } = exercise)
   }
 
-  let intensityDisplay
-  if (catalog.length !== 0) {
-    intensityDisplay = intensity.map(item => {
-      switch (item) {
-        case 'small':
-          return 'низкая';
-        case 'middle': 
-          return 'средняя';
-        case 'hight':
-          return 'высокая'
-        default:
-          return ''
-      }
-    })
-  }
+  // let intensityDisplay
+  // if (catalog.length !== 0) {
+  //   intensityDisplay = intensity.map(item => {
+  //     switch (item) {
+  //       case 'small':
+  //         return 'малая';
+  //       case 'middle': 
+  //         return 'средняя';
+  //       case 'hight':
+  //         return 'высокая'
+  //       default:
+  //         return ''
+  //     }
+  //   })
+  // }
   
   useEffect(() => fetchComponentCatalog(), []);
   
@@ -119,7 +119,7 @@ const ExerciseFullView = ({fetchComponentCatalog, catalog}) => {
                 <p className={classes.text}>{recomendation}</p>
                 <h4 className={classes.text}>
                   Интенсивность: <span className={classes.intensity}>{
-                    intensityDisplay.join(', ')
+                    intensity.join(', ')
                   }.</span>
                 </h4>
               </div>

@@ -23,11 +23,13 @@ const useStyles = makeStyles({
     marginBottom: '.5rem',
   },
   exerciseName: {
+    margin: 0,
     textOverflow: 'ellipsis',
     overflow: 'hidden',
     whiteSpace: 'nowrap',
   },
   exerciseLevel: {
+    margin: 0,
     marginLeft: '2rem',
     whiteSpace: 'nowrap',
   },

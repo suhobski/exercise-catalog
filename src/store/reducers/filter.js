@@ -5,8 +5,8 @@ const initialState = {
     'Игра 1х1': false,
     'Контроль мяча': false,
     'Передачи мяча': false,
-    'Физ. подготовка': false,
-    'Футбол, мини-игры': false,
+    'Физическая подготовка': false,
+    'Мини-игры': false,
   },
   level: {
     1: false,
@@ -16,9 +16,9 @@ const initialState = {
     5: false,
   },
   intensity: {
-    'Малая': false,
-    'Средняя': false,
-    'Высокая': false,
+    'малая': false,
+    'средняя': false,
+    'высокая': false,
   }
 }
 

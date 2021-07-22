@@ -12,9 +12,10 @@ const useStyles = makeStyles({
   }
 })
 
-const Catalog = ({fetchComponentCatalog, catalog}) => {
+const Catalog = ({fetchComponentCatalog, catalog, filter}) => {
   const classes = useStyles();
-
+  const filteredExercises = filterExercises(catalog, filter);
+  
   useEffect(() => fetchComponentCatalog(), []);
 
   return(
@@ -23,8 +24,8 @@ const Catalog = ({fetchComponentCatalog, catalog}) => {
       <Paper className={classes.catalog}>
         <h2>Каталог упражнений</h2>
         {
-          catalog.length !== 0
-          ? catalog.map(exercise => (
+          filteredExercises.length !== 0
+          ? filteredExercises.map(exercise => (
               <ExercisePreview exercise={exercise} key={exercise.id}/>
             ))
           : null
@@ -34,9 +35,60 @@ const Catalog = ({fetchComponentCatalog, catalog}) => {
   )
 }
 
+function filterExercises(catalog, filter){
+  if (isCheckedFilter(filter)) {
+    return catalog
+      .filter(exercise => {
+        if(isCheckedGroup(filter.category)){
+          return filter.category[exercise.category]
+        }
+        return true;
+      })
+      .filter(exercise => {
+        if(isCheckedGroup(filter.level)){
+          return filter.level[exercise.level]
+        }
+        return true;
+      })
+      .filter(exercise => {
+        if(isCheckedGroup(filter.intensity)){
+          return filter.intensity[exercise.intensity[0]] || filter.intensity[exercise.intensity[1]]
+        }
+        return true;
+      })
+  } else {
+    return [...catalog]
+  }
+};
+
+function isCheckedFilter(filter) {
+  let result = false
+  Object.values(filter).forEach(group => {
+    Object.values(group).forEach(item => {
+      if (item) {
+        result = true
+      }
+    })
+  })
+  return result;
+}
+
+function isCheckedGroup(group) {
+  let result = false
+  
+  Object.values(group).forEach(item => {
+    if (item) {
+      result = true
+    }
+  })
+
+  return result
+}
+
 function mapStateToProps(state) {
   return {
-    catalog: state.catalog.exercises
+    catalog: state.catalog.exercises,
+    filter: state.filter,
   }
 }
 

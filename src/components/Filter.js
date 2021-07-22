@@ -76,7 +76,7 @@ const Filter = ({onChangeCategory, onChangeLevel, onChangeIntensity}) => {
           className={classes.option}
           control={
             <Checkbox
-              onChange={(event) => onChangeCategory(event, 'Физ. подготовка')}
+              onChange={(event) => onChangeCategory(event, 'Физическая подготовка')}
               icon={<CheckBoxOutlineBlankIcon fontSize="small" />}
               checkedIcon={<CheckBoxIcon fontSize="small" />}
               name="checkedB"
@@ -89,7 +89,7 @@ const Filter = ({onChangeCategory, onChangeLevel, onChangeIntensity}) => {
           className={classes.option}
           control={
             <Checkbox
-              onChange={(event) => onChangeCategory(event, 'Футбол, мини-игры')}
+              onChange={(event) => onChangeCategory(event, 'Мини-игры')}
               icon={<CheckBoxOutlineBlankIcon fontSize="small" />}
               checkedIcon={<CheckBoxIcon fontSize="small" />}
               name="checkedB"
@@ -182,7 +182,7 @@ const Filter = ({onChangeCategory, onChangeLevel, onChangeIntensity}) => {
           className={classes.option}
           control={
             <Checkbox
-              onChange={(event) => onChangeIntensity(event, 'Малая')}
+              onChange={(event) => onChangeIntensity(event, 'малая')}
               icon={<CheckBoxOutlineBlankIcon fontSize="small" />}
               checkedIcon={<CheckBoxIcon fontSize="small" />}
               name="checkedB"
@@ -195,7 +195,7 @@ const Filter = ({onChangeCategory, onChangeLevel, onChangeIntensity}) => {
           className={classes.option}
           control={
             <Checkbox
-              onChange={(event) => onChangeIntensity(event, 'Средняя')}
+              onChange={(event) => onChangeIntensity(event, 'средняя')}
               icon={<CheckBoxOutlineBlankIcon fontSize="small" />}
               checkedIcon={<CheckBoxIcon fontSize="small" />}
               name="checkedB"
@@ -208,7 +208,7 @@ const Filter = ({onChangeCategory, onChangeLevel, onChangeIntensity}) => {
           className={classes.option}
           control={
             <Checkbox
-              onChange={(event) => onChangeIntensity(event, 'Высокая')}
+              onChange={(event) => onChangeIntensity(event, 'высокая')}
               icon={<CheckBoxOutlineBlankIcon fontSize="small" />}
               checkedIcon={<CheckBoxIcon fontSize="small" />}
               name="checkedB"

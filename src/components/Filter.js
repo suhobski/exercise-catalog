@@ -25,7 +25,8 @@ const useStyles = makeStyles({
   }
 })
 
-const Filter = ({onChangeCategory, onChangeLevel, onChangeIntensity}) => {
+const Filter = ({onChangeCategory, onChangeLevel, onChangeIntensity, category, level, intensity}) => {
+  
 
   const classes = useStyles();
 
@@ -37,6 +38,7 @@ const Filter = ({onChangeCategory, onChangeLevel, onChangeIntensity}) => {
           className={classes.option}
           control={
             <Checkbox
+              checked={category['Игра 1х1']}
               onChange={(event) => onChangeCategory(event, 'Игра 1х1')}
               icon={<CheckBoxOutlineBlankIcon fontSize="small" />}
               checkedIcon={<CheckBoxIcon fontSize="small" />}
@@ -50,6 +52,7 @@ const Filter = ({onChangeCategory, onChangeLevel, onChangeIntensity}) => {
           className={classes.option}
           control={
             <Checkbox
+              checked={category['Контроль мяча']}
               onChange={(event) => onChangeCategory(event, 'Контроль мяча')}
               icon={<CheckBoxOutlineBlankIcon fontSize="small" />}
               checkedIcon={<CheckBoxIcon fontSize="small" />}
@@ -63,6 +66,7 @@ const Filter = ({onChangeCategory, onChangeLevel, onChangeIntensity}) => {
           className={classes.option}
           control={
             <Checkbox
+              checked={category['Передачи мяча']}
               onChange={(event) => onChangeCategory(event, 'Передачи мяча')}
               icon={<CheckBoxOutlineBlankIcon fontSize="small" />}
               checkedIcon={<CheckBoxIcon fontSize="small" />}
@@ -76,6 +80,7 @@ const Filter = ({onChangeCategory, onChangeLevel, onChangeIntensity}) => {
           className={classes.option}
           control={
             <Checkbox
+              checked={category['Физическая подготовка']}
               onChange={(event) => onChangeCategory(event, 'Физическая подготовка')}
               icon={<CheckBoxOutlineBlankIcon fontSize="small" />}
               checkedIcon={<CheckBoxIcon fontSize="small" />}
@@ -89,6 +94,7 @@ const Filter = ({onChangeCategory, onChangeLevel, onChangeIntensity}) => {
           className={classes.option}
           control={
             <Checkbox
+              checked={category['Мини-игры']}
               onChange={(event) => onChangeCategory(event, 'Мини-игры')}
               icon={<CheckBoxOutlineBlankIcon fontSize="small" />}
               checkedIcon={<CheckBoxIcon fontSize="small" />}
@@ -106,6 +112,7 @@ const Filter = ({onChangeCategory, onChangeLevel, onChangeIntensity}) => {
           className={classes.option}
           control={
             <Checkbox
+              checked={level[1]}
               onChange={(event) => onChangeLevel(event, 1)}
               icon={<CheckBoxOutlineBlankIcon fontSize="small" />}
               checkedIcon={<CheckBoxIcon fontSize="small" />}
@@ -119,8 +126,8 @@ const Filter = ({onChangeCategory, onChangeLevel, onChangeIntensity}) => {
           className={classes.option}
           control={
             <Checkbox
-            className={classes.body1}
-              // checked={state.checkedB}
+              checked={level[2]}
+              className={classes.body1}
               onChange={(event) => onChangeLevel(event, 2)}
               icon={<CheckBoxOutlineBlankIcon fontSize="small" />}
               checkedIcon={<CheckBoxIcon fontSize="small" />}
@@ -134,8 +141,8 @@ const Filter = ({onChangeCategory, onChangeLevel, onChangeIntensity}) => {
           className={classes.option}
           control={
             <Checkbox
-            className={classes.body1}
-              // checked={state.checkedB}
+              checked={level[3]}
+              className={classes.body1}
               onChange={(event) => onChangeLevel(event, 3)}
               icon={<CheckBoxOutlineBlankIcon fontSize="small" />}
               checkedIcon={<CheckBoxIcon fontSize="small" />}
@@ -149,8 +156,8 @@ const Filter = ({onChangeCategory, onChangeLevel, onChangeIntensity}) => {
           className={classes.option}
           control={
             <Checkbox
-            className={classes.body1}
-              // checked={state.checkedB}
+              checked={level[4]}
+              className={classes.body1}
               onChange={(event) => onChangeLevel(event, 4)}
               icon={<CheckBoxOutlineBlankIcon fontSize="small" />}
               checkedIcon={<CheckBoxIcon fontSize="small" />}
@@ -164,7 +171,7 @@ const Filter = ({onChangeCategory, onChangeLevel, onChangeIntensity}) => {
         className={classes.option}
         control={
           <Checkbox
-            // checked={state.checkedB}
+            checked={level[5]}
             onChange={(event) => onChangeLevel(event, 5)}
             icon={<CheckBoxOutlineBlankIcon fontSize="small" />}
             checkedIcon={<CheckBoxIcon fontSize="small" />}
@@ -182,6 +189,7 @@ const Filter = ({onChangeCategory, onChangeLevel, onChangeIntensity}) => {
           className={classes.option}
           control={
             <Checkbox
+              checked={intensity['малая']}
               onChange={(event) => onChangeIntensity(event, 'малая')}
               icon={<CheckBoxOutlineBlankIcon fontSize="small" />}
               checkedIcon={<CheckBoxIcon fontSize="small" />}
@@ -195,6 +203,7 @@ const Filter = ({onChangeCategory, onChangeLevel, onChangeIntensity}) => {
           className={classes.option}
           control={
             <Checkbox
+              checked={intensity['средняя']}
               onChange={(event) => onChangeIntensity(event, 'средняя')}
               icon={<CheckBoxOutlineBlankIcon fontSize="small" />}
               checkedIcon={<CheckBoxIcon fontSize="small" />}
@@ -208,6 +217,7 @@ const Filter = ({onChangeCategory, onChangeLevel, onChangeIntensity}) => {
           className={classes.option}
           control={
             <Checkbox
+              checked={intensity['высокая']}
               onChange={(event) => onChangeIntensity(event, 'высокая')}
               icon={<CheckBoxOutlineBlankIcon fontSize="small" />}
               checkedIcon={<CheckBoxIcon fontSize="small" />}

@@ -49,6 +49,8 @@ const useStyles = makeStyles({
 
 const ExerciseFullView = ({fetchComponentCatalog, catalog}) => {
 
+  console.log(catalog);
+
   const classes = useStyles();
   let { id } = useParams();
   let 
@@ -118,9 +120,12 @@ const ExerciseFullView = ({fetchComponentCatalog, catalog}) => {
                 <h4 className={classes.text}>Рекомендации:</h4>
                 <p className={classes.text}>{recomendation}</p>
                 <h4 className={classes.text}>
-                  Интенсивность: <span className={classes.intensity}>{
-                    intensity.join(', ')
-                  }.</span>
+                  Интенсивность:&nbsp;
+                  <span className={classes.intensity}>
+                    {
+                      intensity.join(', ')
+                    }.
+                  </span>
                 </h4>
               </div>
             </div>          

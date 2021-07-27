@@ -16,7 +16,7 @@ const useStyles = makeStyles({
   }
 })
 
-const Favorites = ({fetchComponentCatalog, catalog}) => {
+const Favorites = ({fetchComponentCatalog, favorites}) => {
 
   const classes = useStyles();
 
@@ -26,8 +26,8 @@ const Favorites = ({fetchComponentCatalog, catalog}) => {
     <Paper className={classes.root}>
       <h2>Избранные упражнения</h2>
       {
-        catalog.length !== 0
-        ? catalog.map(exercise => (
+        favorites.length !== 0
+        ? favorites.map(exercise => (
           <ExercisePreview exercise={exercise} key={exercise.id}/>
         ))
         : null
@@ -38,7 +38,7 @@ const Favorites = ({fetchComponentCatalog, catalog}) => {
 
 function mapStateToProps(state) {
   return {
-    catalog: state.catalog.exercises
+    favorites: state.favorites.exercises
   }
 }
 

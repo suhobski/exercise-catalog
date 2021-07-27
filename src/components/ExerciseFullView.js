@@ -49,8 +49,6 @@ const useStyles = makeStyles({
 
 const ExerciseFullView = ({fetchComponentCatalog, catalog}) => {
 
-  console.log(catalog);
-
   const classes = useStyles();
   let { id } = useParams();
   let 
@@ -75,22 +73,6 @@ const ExerciseFullView = ({fetchComponentCatalog, catalog}) => {
     } = exercise)
   }
 
-  // let intensityDisplay
-  // if (catalog.length !== 0) {
-  //   intensityDisplay = intensity.map(item => {
-  //     switch (item) {
-  //       case 'small':
-  //         return 'малая';
-  //       case 'middle': 
-  //         return 'средняя';
-  //       case 'hight':
-  //         return 'высокая'
-  //       default:
-  //         return ''
-  //     }
-  //   })
-  // }
-  
   useEffect(() => fetchComponentCatalog(), []);
   
   return (

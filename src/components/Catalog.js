@@ -4,8 +4,14 @@ import Filter from './Filter';
 import ExercisePreview from './ExercisePreview';
 import {connect} from 'react-redux'
 import {fetchCatalog} from '../store/actions/catalog'
+import { useMediaQuery } from 'react-responsive'
 
 const useStyles = makeStyles({
+  root: {
+    position: 'relative',
+    display: 'flex',
+    alignItems: 'flex-start',
+  },
   catalog: {
     padding: '0.5rem',
     background: '#F0FFFF',
@@ -15,14 +21,16 @@ const useStyles = makeStyles({
 const Catalog = ({fetchComponentCatalog, catalog, filter}) => {
   const classes = useStyles();
   const filteredExercises = filterExercises(catalog, filter);
+  const isTablet = useMediaQuery({ query: '(max-width: 768px)' })
   
   useEffect(() => fetchComponentCatalog(), []);
 
   return(
-    <>
-      <Filter />
+    <div className={classes.root}>
+      {
+        !isTablet && <Filter /> 
+      }
       <Paper className={classes.catalog}>
-        <h2>Каталог упражнений</h2>
         {
           filteredExercises.length !== 0
           ? filteredExercises.map(exercise => (
@@ -31,7 +39,7 @@ const Catalog = ({fetchComponentCatalog, catalog, filter}) => {
           : null
         }
       </Paper>
-    </>
+    </div>
   )
 }
 

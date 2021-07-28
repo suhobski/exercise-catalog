@@ -6,9 +6,10 @@ const useStyles = makeStyles({
   header: {
     display: 'grid',
     alignContent: 'center',
+    gridColumn: '1/3',
+    marginBottom: '.5rem',
     padding: '0.5rem',
     background: '#F0FFFF',
-    gridColumn: '1/3',
   },
   link: {
     textDecoration: 'none',

@@ -26,9 +26,7 @@ const useStyles = makeStyles({
   },
   exerciseName: {
     margin: 0,
-    textOverflow: 'ellipsis',
     overflow: 'hidden',
-    whiteSpace: 'nowrap',
   },
   exerciseLevel: {
     margin: 0,
@@ -39,6 +37,8 @@ const useStyles = makeStyles({
     position: 'relative',
     display: 'grid',
     gap: '0.5rem',
+    display: 'grid',
+    // gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr)',
     gridTemplateColumns: '200px auto',
     overflow: 'auto',
   },
@@ -48,7 +48,7 @@ const useStyles = makeStyles({
     left: 3,
     top: 3,
     fontSize: 25,
-    color: '#87CEEB',
+    color: 'yellow',
     background: 'transparent',
     outline: 'none',
     border: 'none',
@@ -75,9 +75,6 @@ const useStyles = makeStyles({
     maxHeight: 108,
     fontSize: 14,
     overflow: 'hidden',
-  },
-  actions: {
-    justifySelf: 'end',
   },
 })
 

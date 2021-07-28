@@ -8,12 +8,8 @@ import Catalog from "./components/Catalog";
 
 const useStyles = makeStyles({
   root: {
-    display: 'grid',
-    gridTemplateColumns: '210px minmax(350px, auto)',
-    gridTemplateRows: '50px auto',
-    gap: '1rem',
     minHeight: '100vh',
-    padding: '1rem',
+    padding: '.5rem',
     background: '#87CEEB',
     fontFamily: 'Roboto, Helvetica, Arial, sans-serif',
   },

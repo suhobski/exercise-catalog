@@ -9,6 +9,9 @@ import {changeCategory, changeLevel, changeIntensity} from '../store/actions/fil
 const useStyles = makeStyles({
   filter: {
     position: 'sticky',
+    top: '.5rem',
+    minWidth: 210,
+    marginRight: '.5rem',
     padding: '0.5rem',
     background: '#F0FFFF',
   },

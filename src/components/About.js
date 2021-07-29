@@ -6,6 +6,7 @@ const useStyles = makeStyles({
     padding: '0.5rem',
     background: '#F0FFFF',
     gridColumn: '1/3',
+    textAlign: 'justify',
   },
   text: {
     marginBottom: '0.5rem'

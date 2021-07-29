@@ -4,7 +4,7 @@ import { useHistory } from 'react-router'
 import {connect} from 'react-redux'
 import { addToFavorites, removeFromFavorites } from '../store/actions/favorites'
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
     padding: '0.5rem',
     marginBottom: '0.5rem',
@@ -18,6 +18,7 @@ const useStyles = makeStyles({
     '&:hover' : {
       background: '#E1F0F0',
     },
+    zIndex: 0,
   },
   header: {
     display: 'flex',
@@ -34,13 +35,15 @@ const useStyles = makeStyles({
     whiteSpace: 'nowrap',
   },
   details: {
+    [theme.breakpoints.down('xs')]: {
+      gridTemplateColumns: 'auto',
+      justifyItems: 'center',
+    },
     position: 'relative',
     display: 'grid',
     gap: '0.5rem',
-    display: 'grid',
-    // gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr)',
-    gridTemplateColumns: '200px auto',
-    overflow: 'auto',
+    gridTemplateColumns: '200px minmax(190px, 1fr)',
+    gridTemplateRows: 'repeat(2)',
   },
   favorites: {
     display: 'block',
@@ -61,14 +64,18 @@ const useStyles = makeStyles({
     }
   },
   textWrap: {
+    gridColumnEnd: 'auto',
     textAlign: 'justify',
     '& h4': {
       marginBottom: '.5rem',
     }
   },
   image: {
+    [theme.breakpoints.down('xs')]: {
+      maxWidth: '100%',
+    },
     marginTop: '0.25rem',
-    maxWidth: '100%',
+    maxWidth: '200px',
   },
   description: {
     marginTop: '-0.25rem',
@@ -76,7 +83,7 @@ const useStyles = makeStyles({
     fontSize: 14,
     overflow: 'hidden',
   },
-})
+}))
 
 const ExercisePreview = ({exercise, favorites, addToFavorites, removeFromFavorites}) => {
 

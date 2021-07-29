@@ -6,14 +6,21 @@ import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 import {connect} from 'react-redux'
 import {changeCategory, changeLevel, changeIntensity} from '../store/actions/filter'
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   filter: {
     position: 'sticky',
     top: '.5rem',
     minWidth: 210,
-    marginRight: '.5rem',
+    width: '100%',
+    margin: '0 .5rem .5rem 0',
     padding: '0.5rem',
     background: '#F0FFFF',
+    zIndex: 30,
+    [theme.breakpoints.down('sm')]: {
+      display: 'grid',
+      gridTemplateColumns: 'minmax(200px, 40%) minmax(150px, 30%) minmax(150px, 30%)',
+      overflowX: 'auto'
+    }
   },
   option: {
     display: 'block',
@@ -26,7 +33,7 @@ const useStyles = makeStyles({
     fontSize: 14,
     color: 'red',
   }
-})
+}))
 
 const Filter = ({onChangeCategory, onChangeLevel, onChangeIntensity, category, level, intensity}) => {
   
@@ -110,7 +117,7 @@ const Filter = ({onChangeCategory, onChangeLevel, onChangeIntensity, category, l
       </div>
       {/* ---------------------------------------------------------------------------------------------------- */}
       <div>
-        <h3>Уворень сложности</h3>
+        <h3>Уворень</h3>
         <FormControlLabel
           className={classes.option}
           control={

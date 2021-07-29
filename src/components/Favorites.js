@@ -30,7 +30,7 @@ const Favorites = ({fetchComponentCatalog, favorites}) => {
         ? favorites.map(exercise => (
           <ExercisePreview exercise={exercise} key={exercise.id}/>
         ))
-        : <p>не добавлены...</p>
+        : <p>пока не добавлены...</p>
       }
     </Paper>
   );

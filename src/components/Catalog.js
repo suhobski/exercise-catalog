@@ -25,11 +25,11 @@ const Catalog = ({fetchComponentCatalog, catalog, filter}) => {
   const classes = useStyles();
   const filteredExercises = filterExercises(catalog, filter);
   
-  useEffect(() => fetchComponentCatalog(), []);
+  useEffect(() => fetchComponentCatalog(), [fetchComponentCatalog]);
 
   return(
     <div className={classes.root}>
-      <Filter className={classes.filter} /> 
+      <Filter /> 
       <Paper className={classes.catalog}>
         {
           filteredExercises.length !== 0

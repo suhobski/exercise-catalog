@@ -9,7 +9,7 @@ import Catalog from "./components/Catalog";
 const useStyles = makeStyles({
   root: {
     minHeight: '100vh',
-    padding: '.5rem',
+    padding: '0 1rem',
     background: '#87CEEB',
     fontFamily: 'Roboto, Helvetica, Arial, sans-serif',
   },

@@ -8,7 +8,8 @@ const useStyles = makeStyles({
     alignContent: 'center',
     gridColumn: '1/3',
     marginBottom: '.5rem',
-    padding: '0.5rem',
+    padding: '1rem .5rem',
+    borderRadius: '0 0 4px 4px',
     background: '#F0FFFF',
   },
   link: {

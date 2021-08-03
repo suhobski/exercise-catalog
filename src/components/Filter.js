@@ -1,5 +1,5 @@
-import React from 'react'
-import {makeStyles, Paper, FormControlLabel} from "@material-ui/core"
+import React, { useState } from 'react'
+import {makeStyles, Paper, FormControlLabel, Button} from "@material-ui/core"
 import Checkbox from '@material-ui/core/Checkbox';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
@@ -8,19 +8,18 @@ import {changeCategory, changeLevel, changeIntensity} from '../store/actions/fil
 
 const useStyles = makeStyles(theme => ({
   filter: {
-    position: 'sticky',
-    top: '.5rem',
-    minWidth: 210,
-    width: '100%',
+    minWidth: 220,
     margin: '0 .5rem .5rem 0',
     padding: '0.5rem',
+    paddingLeft: '1rem',
     background: '#F0FFFF',
     zIndex: 30,
     [theme.breakpoints.down('sm')]: {
       display: 'grid',
-      gridTemplateColumns: 'minmax(200px, 40%) minmax(150px, 30%) minmax(150px, 30%)',
-      overflowX: 'auto'
-    }
+      width: '100%',
+      gridTemplateColumns: 'minmax(200px, 40%) minmax(150px, 31%) minmax(150px, 29%)',
+      overflowX: 'auto',
+    },
   },
   option: {
     display: 'block',
@@ -37,8 +36,8 @@ const useStyles = makeStyles(theme => ({
 
 const Filter = ({onChangeCategory, onChangeLevel, onChangeIntensity, category, level, intensity}) => {
   
-
   const classes = useStyles();
+  const [isOpen, setIsOpen] = useState(false)
 
   return (
     <Paper className={classes.filter}>
